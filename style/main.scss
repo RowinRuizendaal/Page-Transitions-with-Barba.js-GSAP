@@ -3,12 +3,27 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    cursor: none;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
     height: 100vh;
     background: rgb(240, 240, 240);
+}
+
+.cursor {
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid #1a1f2b;
+    background-color: transparent;
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    transition: 200ms;
+    transition-timing-function: ease-out;
+    animation: pulse 2s infinite;
+    z-index: 20;
 }
 
 .wrapper {
@@ -84,6 +99,21 @@ ul.transition li:nth-of-type(4) {
 
 ul.transition li:nth-of-type(5) {
     background-color: #E43F6F;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 63, 102, 0.62);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(0, 63, 102, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 63, 102, 0);
+    }
 }
 
 @media (min-width: 650px) {
