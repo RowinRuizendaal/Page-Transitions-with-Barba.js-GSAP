@@ -34,32 +34,21 @@ const pageTransition = () => {
     tl.to('ul.transition li', {
         duration: .5,
         scaleY: 1,
-        transformOrigin: 'bottom left',
+        transformOrigin: 'top right',
         stagger: .2
     })
 
     tl.to('ul.transition li', {
         duration: .5,
         scaleY: 0,
-        transformOrigin: 'bottom left',
+        transformOrigin: 'top left',
         stagger: .1
     })
 }
 
 const contentAnimation = () => {
     let tl = gsap.timeline();
-    tl.from('.left', {
-        duration: 1.5,
-        translateY: 50,
-        opacity: 0
-    })
-
-    tl.to('img', {
-            clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)'
-        },
-        '-=1.1')
 }
-
 
 let mouseCursor = document.querySelector('.cursor')
 

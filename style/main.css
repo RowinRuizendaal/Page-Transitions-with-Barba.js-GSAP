@@ -3,32 +3,16 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  cursor: none;
 }
 
 body {
   font-family: "Poppins", sans-serif;
-  height: 100vh;
-  background: #f0f0f0;
+  overflow-x: hidden;
+  cursor: none;
 }
 
-.cursor {
-  width: 3rem;
-  height: 3rem;
-  border: 1px solid #1a1f2b;
-  background-color: transparent;
-  border-radius: 50%;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  transition: 200ms;
-  transition-timing-function: ease-out;
-  -webkit-animation: pulse 2s infinite;
-          animation: pulse 2s infinite;
-  z-index: 20;
-}
-
-.wrapper {
-  padding: 1em;
+main {
+  min-height: 100vh;
 }
 
 ul {
@@ -36,33 +20,6 @@ ul {
   display: flex;
   padding: 0;
   margin-right: auto;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-
-li a {
-  margin-right: 2em;
-}
-
-h1 {
-  font-size: 3em;
-  margin-top: 1.5em;
-}
-
-.cta {
-  display: block;
-  padding: 2em 2em 2em 0;
-  font-size: 1.4em;
-  font-weight: 300;
-}
-
-img {
-  width: 100%;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-          clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
 }
 
 ul.transition {
@@ -79,30 +36,86 @@ ul.transition {
 
 ul.transition li {
   transform: scaleY(0);
-  background: white;
+  background: #1a1f2b;
   width: 20%;
 }
 
-ul.transition li:nth-of-type(1) {
-  background-color: #373F51;
+.cursor {
+  width: 5rem;
+  height: 5rem;
+  border: 1px solid #FFA400;
+  background-color: transparent;
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  transition: 200ms;
+  transition-timing-function: ease-out;
+  -webkit-animation: pulse 2s infinite;
+  animation: pulse 2s infinite;
+  z-index: 20;
 }
 
-ul.transition li:nth-of-type(2) {
-  background-color: #008DD5;
+.grid-container {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-row-gap: 0;
+  gap: 0px;
+}
+.grid-container img {
+  display: block;
+  width: 100%;
+  filter: brightness(50%);
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100vh;
+}
+.grid-container img:hover {
+  transition: 0.5s ease-in-out;
 }
 
-ul.transition li:nth-of-type(3) {
-  background-color: #DFBBB1;
+.project {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.project:hover .text p {
+  opacity: 1;
+  transform: translateY(0);
+  transition: 0.5s ease-in-out;
+}
+.project .text {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  color: white;
+  padding: 90px;
+}
+.project .text h3 {
+  font-size: 5rem;
+  font-weight: 600;
+}
+.project .text p {
+  font-size: 1.2rem;
+  opacity: 0;
+  font-weight: 200;
+  transform: translateY(200px);
 }
 
-ul.transition li:nth-of-type(4) {
-  background-color: #F56476;
+@media (min-width: 650px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    gap: 0;
+  }
+  .grid-container img {
+    width: 100%;
+  }
 }
-
-ul.transition li:nth-of-type(5) {
-  background-color: #E43F6F;
-}
-
 @-webkit-keyframes pulse {
   0% {
     transform: scale(0.95);
@@ -117,11 +130,10 @@ ul.transition li:nth-of-type(5) {
     box-shadow: 0 0 0 0 rgba(0, 63, 102, 0);
   }
 }
-
 @keyframes pulse {
   0% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(0, 63, 102, 0.62);
+    box-shadow: 0 0 0 0 #f63f63;
   }
   70% {
     transform: scale(1);
@@ -130,36 +142,5 @@ ul.transition li:nth-of-type(5) {
   100% {
     transform: scale(0.95);
     box-shadow: 0 0 0 0 rgba(0, 63, 102, 0);
-  }
-}
-@media (min-width: 650px) {
-  main {
-    display: flex;
-    margin-top: 3em;
-    position: relative;
-    z-index: 3;
-  }
-
-  .wrapper {
-    max-width: 950px;
-    margin: 0 auto;
-  }
-
-  .left {
-    padding-right: 2em;
-  }
-
-  img {
-    width: 400px;
-  }
-
-  .cta {
-    padding: 1em;
-    background: white;
-    position: absolute;
-    z-index: 21 !important;
-    width: 80%;
-    -webkit-animation-fill-mode: initial;
-            animation-fill-mode: initial;
   }
 }/*# sourceMappingURL=main.css.map */
